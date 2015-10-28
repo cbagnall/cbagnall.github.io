@@ -256,13 +256,13 @@
                 <div class="row">
 
                     <div class="col-sm-4 img-hover">
-                        <a href="http:\\www.facebook.com"><img class ="img-hover" src="img/facebook_icon.png"></a>
+                        <a href="https://www.facebook.com/clay.john.1"><img class ="img-hover" src="img/facebook_icon.png"></a>
                     </div>                    
                     <div class="col-sm-4 img-hover">
-                    <a href="http:\\www.linked.com"><img class="img-hover" src="img/linkedin_icon.png"></a>
+                    <a href="https://ca.linkedin.com/in/claytonbagnall"><img class="img-hover" src="img/linkedin_icon.png"></a>
                     </div>                    
                     <div class="col-sm-4 img-hover">
-                        <a href="http:\\www.hotmail.com"><img class="img hover" src="img/mail1.png"></a>
+                        <a href="" data-toggle="modal" data-target="#emailModal" data-whatever="@getbootstrap"><img class="img hover" src="img/mail1.png"></a>
                     </div> 
 
                 </div>                
@@ -270,9 +270,35 @@
         </div>
     </section>
 
-    
+<!-- Email form -->
 
-    <!-- Portfolio Modals -->
+<div class="modal fade" id="emailModal" tabindex="-1" role="dialog" aria-labelledby="emailModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="emailModalLabel">New message</h4>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="recipient-name" class="Recipient">Recipient:</label>
+            <textarea class="form-control" id="message-text">claymac1995@hotmail.com</textarea>
+          </div>
+          <div class="form-group">
+            <label for="message-text" class="control-label">Message:</label>
+            <textarea class="form-control" id="message-text"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+    
     <!-- Use the modals below to showcase details about your portfolio projects! -->
 
     <!-- jQuery -->
