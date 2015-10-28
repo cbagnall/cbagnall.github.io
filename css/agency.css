@@ -504,14 +504,14 @@ section h3.section-subheading {
     z-index: 100;
     position: absolute;
     left: 0;
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     margin-left: 0;
-    border: 7px solid #f1f1f1;
+    border: 7px solid #222;
     border-radius: 100%;
     text-align: center;
     color: #fff;
-    background-color: #fed136;
+    background-color: #222;
 }
 
 .timeline>li .timeline-image h4 {
