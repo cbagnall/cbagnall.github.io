@@ -109,7 +109,6 @@
                         <p>In my spare time I enjoy tinkering with microcontrollers such as Arduino, STM32F Discovery boards, and Linux BeagleBoards. Currently I am attempting to automate aspects of my house using an Arduino and parts that I have machined and 3D printed.</p>
                         <br>
                         <p>I also enjoy practicing my coding skills. Although I have experience using a variety of tools (C, C++ Matlab, Labview, etc.), I am most comfortable with Java and Python.</p>
-                        <a href="php-test.html">click me</a> <!--remove this-->
                     </div>
                 </div>   
             </div> 
@@ -145,7 +144,7 @@
                         </li>
                         <li class="timeline-inverted img-hover2">
                             <div class="timeline-image img-hover2">
-                                <img class="img-circle img-responsive img-hover2" src="img/about/mcmaster.jpg" alt="">
+                                <img class="img-circle img-responsive img-hover2" src="img/about/counter.jpg" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
@@ -281,29 +280,65 @@
         <h4 class="modal-title" id="emailModalLabel">New message</h4>
       </div>
       <div class="modal-body">
-        <form>
+        <form role="form" method="post" action="index.php">
           <div class="form-group">
             <label for="recipient-name" class="name">Name:</label>
-            <textarea class="form-control" id="message-text">Please enter your full name</textarea>
-          </div>
+            <input type="text" class="form-control" id="username" placeholder="First and Last Name">
+            <?php echo "$errName";?>
+        </div>
           <div class="form-group">
             <label for="recipient-name" class="email">Email:</label>
-            <textarea class="form-control" id="message-text">Please enter your email</textarea>
-          </div>
+             <input type="email" class="form-control" id="myemail" placeholder="example@domain.com">
+            <?php echo "$errEmail";?>
+        </div>
           <div class="form-group">
             <label for="message-text" class="control-label">Message:</label>
-            <textarea class="form-control" id="message-text">Enter your message here</textarea>
-          </div>
-        </form>
+            <textarea class="form-control" rows="4" id="mymessage" type="message"></textarea>
+            <?php echo "$errMessage";?>
+        </div>
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <!--button type="button" class="btn btn-primary">Send message</button-->
+        <input id="submission" name="submit" type="submit" value="Submit" class="btn btn-primary">
       </div>
     </div>
+    </form>
   </div>
 </div>
 
+<?php
+    $submissions = document.getElementById("submission").value;
+    if (isset($submissions)) {
+
+        $from = "$personsname @ $thisemail"; 
+        $to = "claymac1995@hotmail.com"; 
+        $subject = "Email Contact Form";
+        
+        $body = '$mymessage';
+        $personsname = document.getElementById("username").value;
+        $thismessage = document.getElementById("mymessage").value; 
+        $thisemail = document.getElementById("myemail").value;
+
+        // Check if name has been entered
+        if (!$personsname]) {
+            $errName = 'Please enter your name';
+        }
+        
+        // Check if email has been entered and is valid
+        if (!$thisemail || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errEmail = 'Please enter a valid email address';
+        }
+        
+        //Check if message has been entered
+        if (!$thismessage) {
+            $errMessage = 'Please enter your message';
+
+        if (!$errName && !$errEmail && !$errMessage) 
+            { mail ($to, $subject, $body, $from); }
+        }
+?>
     <!-- Use the modals below to showcase details about your portfolio projects! -->
 
     <!-- jQuery -->
